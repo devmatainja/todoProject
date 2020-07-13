@@ -1,0 +1,15 @@
+@import './variables';
+@import './navigation';
+@import './todo-container';
+@import './todo-item';
+@import './add-todo-button';
+@import './add-todo';
+
+html,
+body {
+    height          : 100%;
+    width           : 100%;
+    background-color: #ededed;
+    padding         : 0;
+    margin          : 0;
+}
