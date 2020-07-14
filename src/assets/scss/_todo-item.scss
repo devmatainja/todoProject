@@ -3,6 +3,34 @@ div.todo {
     padding         : 15px;
     border-radius   : 2px;
 
+    p.top {
+        display        : flex;
+        justify-content: flex-end;
+
+        span.complete,
+        span.incomplete {
+            color        : red;
+            padding      : 4px 8px;
+            font-weight  : bold;
+            margin-right : 10px;
+            border-radius: 2px;
+        }
+
+        span.complete {
+            color: green;
+        }
+
+        button {
+            cursor    : pointer;
+            border    : 0;
+            font-size : 18px;
+            background: transparent;
+            color     : red;
+        }
+    }
+
+    div {}
+
     h2 {
         padding      : 0;
         margin       : 0;
@@ -13,5 +41,24 @@ div.todo {
     p {
         padding: 0;
         margin : 0;
+    }
+
+    p.bottom {
+        margin-top     : 15px;
+        padding-top    : 5px;
+        border-top     : 1px solid #cccccc;
+        display        : flex;
+        justify-content: space-between;
+
+        span.date,
+        span.creator {
+            font-size: 12px;
+        }
+
+        span.date {
+            .anticon-calendar {
+                margin-right: 5px;
+            }
+        }
     }
 }

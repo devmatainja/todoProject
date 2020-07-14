@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+import "@aws-amplify/ui/dist/style.css";
 import './assets/scss/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

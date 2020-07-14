@@ -3,4 +3,5 @@ type Todo @model {
   name: String!
   description: String
   completed: Boolean
+  creatorId: String!
 }

@@ -1,28 +1,22 @@
 import React, { Fragment, useState } from 'react';
-import { API, graphqlOperation } from "aws-amplify";
-
-const addTodo = `mutation createTodo($name:String! $description: String!) {
-    createTodo(input:{
-      name:$name
-      description:$description
-    }){
-      id
-      name
-      description
-    }
-}`;
+import { Auth, API, graphqlOperation } from "aws-amplify";
+import { createTodo } from '../graphql/mutations';
 
 const AddTodo = ({ open, handleCloseAddTodoModal }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
 
-    const handleSubmit = async event => {
+    const handleSubmit = event => {
         event.preventDefault();
-        const todoDetails = { name, description };
-        const newTodo = await API.graphql(graphqlOperation(addTodo, todoDetails));
-        setName();
-        setDescription();
-        handleCloseAddTodoModal(false);
+        Auth.currentAuthenticatedUser().then(async (user) => {
+            console.log(user);
+            const input = { name, description, completed: false, creatorId: user.username };
+            console.log(input);
+            const newTodo = await API.graphql(graphqlOperation(createTodo, { input }));
+            setName();
+            setDescription();
+            handleCloseAddTodoModal(false);
+        }).catch(console.error);
     }
 
     if (open)

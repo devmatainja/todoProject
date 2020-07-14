@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { API, graphqlOperation } from "aws-amplify";
+import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Navigation, TodoContainer, AddTodoButton, AddTodo } from './components';
 
 const listTodos = `query listTodos {
@@ -24,7 +24,7 @@ const addTodo = `mutation createTodo($name:String! $description: String!) {
   }
 }`;
 
-const App = () => {
+const App = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleOpenAddTodoModal = () => {
@@ -35,6 +35,8 @@ const App = () => {
     setOpen(false);
   }
 
+  console.log(props);
+  
   return (
     <Fragment>
       <Navigation />
