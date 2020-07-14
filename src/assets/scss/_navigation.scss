@@ -1,14 +1,43 @@
 header.navigation-menu {
     height          : 64px;
     background-color: #ffffff;
-    position: sticky;
-    top: 0;
-    box-sizing: border-box;
-    box-shadow: 0 0 2px #7d7d7d;
+    position        : sticky;
+    top             : 0;
+    box-sizing      : border-box;
+    box-shadow      : 0 0 2px #7d7d7d;
 
     nav {
-        display    : flex;
-        align-items: center;
-        padding    : 0 15px;
+        display        : flex;
+        align-items    : center;
+        padding        : 0 15px;
+        justify-content: space-between;
+
+        .button {
+            width           : 100%;
+            min-width       : 153px;
+            display         : inline-block;
+            margin-bottom   : 0px;
+            font-size       : var(--amplify-text-sm);
+            font-family     : var(--amplify-font-family);
+            font-weight     : 600;
+            text-align      : center;
+            white-space     : nowrap;
+            vertical-align  : middle;
+            touch-action    : manipulation;
+            cursor          : pointer;
+            user-select     : none;
+            background-image: none;
+            color           : #ffffff;
+            letter-spacing  : 0.75px;
+            text-transform  : var(--text-transform);
+            background-color: #ff9900;
+            padding         : 1rem;
+        }
+    }
+
+    .sign-out .button {
+        height       : 40px;
+        border-radius: 8px;
+        padding      : 0;
     }
 }
